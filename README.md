@@ -97,7 +97,7 @@ Don't
 ```
 
 #### Relationships: hasMany, belongsToMany
-All methods defining hasMany or belongsToMany relationship MUST be in singular form.
+All methods defining hasMany or belongsToMany relationship MUST be in plural form.
 
 Do
 ```php
