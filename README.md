@@ -57,7 +57,70 @@ class UserModel extends Models
 class user_model extends Models
 ```
 
-### Controllers/Models Methods
+### Model Properties
+All model properties SHOULD be in snake_case.
+
+Do
+```php
+public $first_name
+public $published_at
+```
+
+Don't
+```php
+public $firstName
+public $publishedAt
+```
+
+
+### Relationships: hasOne and belongsTo
+All methods defining hasOne or belongsTo relationship MUST be in singular form.
+
+Do
+```php
+...
+    public function post()
+    {
+        return $this->hasOne(App\Models\Post::class);
+    }
+...
+```
+
+Don't
+```php
+...
+    public function posts()
+    {
+        return $this->hasOne(App\Models\Post::class);
+    }
+...
+```
+
+### Relationships: hasMany, belongsToMany
+All methods defining hasMany or belongsToMany relationship MUST be in singular form.
+
+Do
+```php
+...
+    public function users()
+    {
+        return $this->hasMany(App\Models\Post::class);
+    }
+...
+```
+
+Don't
+```php
+...
+    public function user()
+    {
+        return $this->hasMany(App\Models\Post::class);
+    }
+...
+```
+
+
+## Controllers/Models Methods
 All methods in Controllers and Models MUST be in camelCase.
 
 Do
@@ -97,7 +160,7 @@ $popular_posts
 $PopularPosts
 ```
 
-Avoid abbreviations as much possible.
+Avoid abbreviations as much as possible.
 
 Do
 ```php
@@ -127,17 +190,18 @@ Route::get('/user_policies', 'UserController@index');
 ```
 
 #### Route Names
-All route names MUST use snake_casing and dot notation.
+All route names MUST use snake_casing and dot notation. They SHOULD be in singular form.
 
 Do
 ```php
-Route::get('/users/active', 'UserController@index')->name('users.active');
-Route::get('/users/user-policies', 'UserPolicyController@index')->name('users.user_policies');
+Route::get('/users/active', 'UserController@index')->name('user.active');
+Route::get('/users/user-policies', 'UserPolicyController@index')->name('user.user_policy');
 ```
 
 Don't
 ```php
 Route::get('/users/active', 'UserController@index')->name('users_active');
+Route::get('/users/user-policies', 'UserPolicyController@index')->name('user.user_policies');
 Route::get('/users/user-policies', 'UserPolicyController@index')->name('users-user-policies');
 ```
 
@@ -187,7 +251,23 @@ posts_users
 ```
 
 #### Columns
-Primary `id` column in the table SHOULD be named just 'id' and SHOULD not be pre or post-fixed.
+All columns SHOULD be in snake_case and SHOULD NOT contain model name.
+
+Do
+```
+first_name
+address
+country
+```
+
+Don't
+```
+firstName
+user_address
+user_country
+```
+
+Primary `id` column in the table SHOULD be named just 'id' in lower case and SHOULD NOT contain any prefix or a suffix.
 
 Do
 ```
@@ -197,10 +277,10 @@ id
 Don't
 ```
 post_id
-id_user
+postID
 ```
 
-Foreign key columns SHOULD be in singular form.
+Foreign key columns SHOULD use singular model name with '_id' suffix.
 
 Do
 ```
@@ -209,7 +289,9 @@ post_id
 
 Don't
 ```
-posts_id
+postId
+fk_post_id
 ```
+
 
 
