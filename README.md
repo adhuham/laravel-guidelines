@@ -3,16 +3,8 @@ What follows are guidelines and best practices to consider while building web ap
 Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony (Wikipedia).
 This guide includes both best practices and coding guidelines, some of which are highly opinionated. Thus, treat this guide as a general guideline to follow, not as a rule book.
 
-### Keywords Used
+## Keywords Used
 This guidline uses keywords from (https://www.ietf.org/rfc/rfc2119.txt)[RFC 2119] specifications.
-
-     The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
-      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
-      "OPTIONAL" in this document are to be interpreted as described in
-      RFC 2119.
-
-   Note that the force of these words is modified by the requirement
-   level of the document in which they are used.
    
 1. **MUST** This word, or the terms "REQUIRED" or "SHALL", mean that the
    definition is an absolute requirement of the specification.
