@@ -28,7 +28,7 @@ This guidline uses keywords from [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt
 
 ## Naming Conventions
 ### Controllers
-All controller names MUST start with a singular noun, followed by the word "Controller" at the end. They should be in PascalCase.
+All controller names MUST start with a singular noun, followed by the word "Controller" at the end, and MUST be in PascalCase.
 
 Correct
 ```php
@@ -43,7 +43,7 @@ class Posts extends Controller
 ```
 
 ### Models
-All model names MUST be in singular form in PascalCase.
+All model names MUST be in singular form, and MUST use PascalCasing.
 
 Correct
 ```php
@@ -57,6 +57,96 @@ class UserModel extends Models
 class user_model extends Models
 ```
 
+### Controllers/Models Methods
+All methods in Controllers and Models MUST be in camelCase.
 
+Correct
+```php
+class User extends Model
+{
+    public function scopeActive($q)
+    {
+        return $q->where('active', 1);
+    }
+```
+
+Wrong
+```php
+class User extends Model
+{
+    public function scope_active($q)
+    {
+....
+class User extends Model
+{
+    public function ScopeActive($q)
+    {
+```
+
+### Variables
+All variables SHOULD generally use camelCase.
+
+Correct
+```php
+$popularPosts
+$activeUsers
+```
+
+Wrong
+```php
+$popular_posts
+$ActiveUsers
+```
+
+
+### Routes
+All routes SHOULD be in plural form of the resource it's manipulating, and SHOULD be in lower case. They MUST use kebab-casing.
+
+Correct
+```php
+Route::get('/users', 'UserController@index');
+Route::get('/user-policies', 'UserPolicyController@index');
+```
+
+Wrong
+```php
+Route::get('/user', 'UserController@index');
+Route::get('/user_all', 'UserController@index');
+Route::get('/userAll', 'UserController@index');
+Route::get('/UserAll', 'UserController@index');
+Route::get('/user_policies', 'UserController@index');
+
+```
+
+#### Route Names
+All route names MUST use snake_casing and dot notation.
+
+Correct
+```php
+Route::get('/users/active', 'UserController@index')->name('users.active');
+Route::get('/users/user-policies', 'UserPolicyController@index')->name('users.user_policies');
+```
+
+Correct
+```php
+Route::get('/users/active', 'UserController@index')->name('users_active');
+Route::get('/users/user-policies', 'UserPolicyController@index')->name('users-user-policies');
+```
+
+### Views
+All view files and folders MUST use snake_casing. 
+
+Correct
+```
+user_policies/show.blade.php
+user_policies.blade.php
+```
+
+Wrong
+```
+user-policies/show.blade.php
+UserPolicies/show.blade.php
+userPolicies.blade.php
+```
 
 
