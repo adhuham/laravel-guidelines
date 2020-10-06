@@ -221,6 +221,26 @@ UserPolicies/show.blade.php
 userPolicies.blade.php
 ```
 
+#### Parameters
+All view parameters SHOULD BE in camelCase.
+
+Do
+```php
+return view('index.blade.php' [
+   'firstName' => 'Taylor',
+   'lastName' => 'Otwell'
+]);
+```
+
+Don't
+```php
+return view('index.blade.php' [
+   'first_name' => 'Taylor',
+   'last-name' => 'Otwell'
+]);
+```
+
+
 ### Database
 #### Tables
 Database tables SHOULD be in plural form and SHOULD use snake_casing.
