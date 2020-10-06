@@ -57,7 +57,7 @@ class UserModel extends Models
 class user_model extends Models
 ```
 
-### Model Properties
+#### Model Properties
 All model properties SHOULD be in snake_case.
 
 Do
@@ -73,77 +73,77 @@ public $publishedAt
 ```
 
 
-### Relationships: hasOne and belongsTo
+#### Relationships: hasOne and belongsTo
 All methods defining hasOne or belongsTo relationship MUST be in singular form.
 
 Do
 ```php
-...
+// ...
     public function post()
     {
         return $this->hasOne(App\Models\Post::class);
     }
-...
+// ...
 ```
 
 Don't
 ```php
-...
+// ...
     public function posts()
     {
         return $this->hasOne(App\Models\Post::class);
     }
-...
+// ...
 ```
 
-### Relationships: hasMany, belongsToMany
+#### Relationships: hasMany, belongsToMany
 All methods defining hasMany or belongsToMany relationship MUST be in singular form.
 
 Do
 ```php
-...
+// ...
     public function users()
     {
         return $this->hasMany(App\Models\Post::class);
     }
-...
+//  ...
 ```
 
 Don't
 ```php
-...
+// ...
     public function user()
     {
         return $this->hasMany(App\Models\Post::class);
     }
-...
+// ...
 ```
 
 
-## Controllers/Models Methods
+### Controllers/Models Methods
 All methods in Controllers and Models MUST be in camelCase.
 
 Do
 ```php
-...
+// ...
     public function scopeActive($q)
     {
         return $q->where('active', 1);
     }
-...
+// ...
 ```
 
 Don't
 ```php
-...
+// ...
     public function scope_active($q)
     {
     }
-....
+// ....
     public function ScopeActive($q)
     {
     }
-...
+// ...
 ```
 
 ### Variables
@@ -221,8 +221,8 @@ UserPolicies/show.blade.php
 userPolicies.blade.php
 ```
 
-### Database
-#### Tables
+## Database
+### Tables
 Database tables SHOULD be in plural form and SHOULD use snake_casing.
 
 Do
@@ -250,7 +250,7 @@ user_post
 posts_users
 ```
 
-#### Columns
+### Columns
 All columns SHOULD be in snake_case and SHOULD NOT contain model name.
 
 Do
