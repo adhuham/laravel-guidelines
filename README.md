@@ -1,7 +1,7 @@
-# Guidelines and Best Practices for Building robust Web Application in Laravel
+# Guidelines and Best Practices for Building robust Web Applications in Laravel
 What follows are guidelines and best practices to consider while building web applications using Laravel framework.
 Laravel is a free, open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller (MVC) architectural pattern and based on Symfony (Wikipedia).
-This guide includes both best practices and coding guidelines, some of which are highly opinionated. Thus, treat this guide as a general guideline to follow, not as a rule book.
+This guide is highly opinionated. Thus, treat this as a general guideline to follow, and not as a hard and fast rule book.
 
 ## Keywords Used
 This guidline uses keywords from [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) specifications.
@@ -28,14 +28,14 @@ This guidline uses keywords from [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt
 
 ## Naming Conventions
 ### Controllers
-All controller names MUST start with a singular noun, followed by the word "Controller" at the end, and MUST be in PascalCase.
+All controllers MUST start with a singular noun followed by the word "Controller" at the end, and MUST be in PascalCase.
 
-Correct
+Do
 ```php
 class PostController extends Controller
 ```
 
-Wrong
+Don't
 ```php
 class Posts_Controller extends Controller
 class post_controller extends Controller
@@ -43,14 +43,14 @@ class Posts extends Controller
 ```
 
 ### Models
-All model names MUST be in singular form, and MUST use PascalCasing.
+All models MUST be in singular form and MUST use PascalCasing.
 
-Correct
+Do
 ```php
 class User extends Models
 ```
 
-Wrong
+Don't
 ```php
 class Users extends Models
 class UserModel extends Models
@@ -60,7 +60,7 @@ class user_model extends Models
 ### Controllers/Models Methods
 All methods in Controllers and Models MUST be in camelCase.
 
-Correct
+Do
 ```php
 class User extends Model
 {
@@ -70,7 +70,7 @@ class User extends Model
     }
 ```
 
-Wrong
+Don't
 ```php
 class User extends Model
 {
@@ -84,69 +84,132 @@ class User extends Model
 ```
 
 ### Variables
-All variables SHOULD generally use camelCase.
+All variables SHOULD be in camelCase.
 
-Correct
+Do
 ```php
 $popularPosts
-$activeUsers
 ```
 
-Wrong
+Don't
 ```php
 $popular_posts
-$ActiveUsers
+$PopularPosts
+```
+
+Avoid abbreviations as much possible.
+
+Do
+```php
+$invoiceAccountId
+```
+
+Don't
+```php
+$invAccId
 ```
 
 
 ### Routes
 All routes SHOULD be in plural form of the resource it's manipulating, and SHOULD be in lower case. They MUST use kebab-casing.
 
-Correct
+Do
 ```php
 Route::get('/users', 'UserController@index');
 Route::get('/user-policies', 'UserPolicyController@index');
 ```
 
-Wrong
+Don't
 ```php
 Route::get('/user', 'UserController@index');
 Route::get('/user_all', 'UserController@index');
-Route::get('/userAll', 'UserController@index');
-Route::get('/UserAll', 'UserController@index');
 Route::get('/user_policies', 'UserController@index');
-
 ```
 
 #### Route Names
 All route names MUST use snake_casing and dot notation.
 
-Correct
+Do
 ```php
 Route::get('/users/active', 'UserController@index')->name('users.active');
 Route::get('/users/user-policies', 'UserPolicyController@index')->name('users.user_policies');
 ```
 
-Correct
+Don't
 ```php
 Route::get('/users/active', 'UserController@index')->name('users_active');
 Route::get('/users/user-policies', 'UserPolicyController@index')->name('users-user-policies');
 ```
 
 ### Views
-All view files and folders MUST use snake_casing. 
+All view files / folders MUST use snake_casing. 
 
-Correct
+Do
 ```
 user_policies/show.blade.php
 user_policies.blade.php
 ```
 
-Wrong
+Don't
 ```
 user-policies/show.blade.php
 UserPolicies/show.blade.php
 userPolicies.blade.php
+```
+
+### Database
+#### Tables
+Database tables SHOULD be in plural form and SHOULD use snake_casing.
+
+Do
+```
+users
+user_policies
+```
+
+Don't
+```
+user
+userPolicies
+```
+
+Pivot tables SHOULD be in singular form and in alphabetical order.
+
+Do
+```
+post_user
+```
+
+Don't
+```
+user_post
+posts_users
+```
+
+#### Columns
+Primary `id` column in the table SHOULD be named just 'id' and SHOULD not be pre or post-fixed.
+
+Do
+```
+id
+```
+
+Don't
+```
+post_id
+id_user
+```
+
+Foreign key columns SHOULD be in singular form.
+
+Do
+```
+post_id
+```
+
+Don't
+```
+posts_id
 ```
 
 
