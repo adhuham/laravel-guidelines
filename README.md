@@ -4,7 +4,7 @@ Laravel is a free, open-source PHP web framework, created by Taylor Otwell and i
 This guide includes both best practices and coding guidelines, some of which are highly opinionated. Thus, treat this guide as a general guideline to follow, not as a rule book.
 
 ## Keywords Used
-This guidline uses keywords from (https://www.ietf.org/rfc/rfc2119.txt)[RFC 2119] specifications.
+This guidline uses keywords from [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) specifications.
    
 1. **MUST** This word, or the terms "REQUIRED" or "SHALL", mean that the
    definition is an absolute requirement of the specification.
