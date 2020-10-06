@@ -221,8 +221,8 @@ UserPolicies/show.blade.php
 userPolicies.blade.php
 ```
 
-## Database
-### Tables
+### Database
+#### Tables
 Database tables SHOULD be in plural form and SHOULD use snake_casing.
 
 Do
@@ -250,7 +250,7 @@ user_post
 posts_users
 ```
 
-### Columns
+#### Columns
 All columns SHOULD be in snake_case and SHOULD NOT contain model name.
 
 Do
