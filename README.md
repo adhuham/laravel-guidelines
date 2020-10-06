@@ -125,25 +125,25 @@ All methods in Controllers and Models MUST be in camelCase.
 
 Do
 ```php
-class User extends Model
-{
+...
     public function scopeActive($q)
     {
         return $q->where('active', 1);
     }
+...
 ```
 
 Don't
 ```php
-class User extends Model
-{
+...
     public function scope_active($q)
     {
+    }
 ....
-class User extends Model
-{
     public function ScopeActive($q)
     {
+    }
+...
 ```
 
 ### Variables
